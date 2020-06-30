@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+.cube:before {
+  content: '';
+  float: left;
+  padding-top: 100%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
