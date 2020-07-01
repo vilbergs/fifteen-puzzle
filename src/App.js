@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
+import Button from './components/Button'
 
 function App() {
   const winningSet = [
@@ -104,14 +105,11 @@ function App() {
   }
 
   return (
-    <>
+    <div style={{ maxWidth: 500, margin: '0 auto' }}>
       <div
         style={{
           display: 'flex',
           flexFlow: 'column',
-          maxWidth: 500,
-          maxHeight: 500,
-          margin: '0 auto',
           position: 'relative',
         }}
       >
@@ -142,11 +140,12 @@ function App() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  cursor: 'pointer',
                   borderRadius: 15,
                   width: '100%',
                   margin: 5,
                   background: null === tile ? 'aliceblue' : '#7FDBFF',
-                  transition: 'all 0.3s ease-out 0s',
+                  transition: null === tile ? 'none' : 'all 0.3s ease-out 0s',
                   fontSize: '2em',
                   color: '#001f3f',
                   boxShadow:
@@ -163,7 +162,8 @@ function App() {
         ))}
       </div>
       <div style={{ maxWidth: 500, margin: '20px 10px' }}>
-        <button
+        <Button
+          style={{ marginRight: 15 }}
           onClick={() =>
             setTiles([
               [1, 2, 3, 4],
@@ -174,10 +174,10 @@ function App() {
           }
         >
           Win
-        </button>
-        <button onClick={reset}>Reset</button>
+        </Button>
+        <Button onClick={reset}>Reset</Button>
       </div>
-    </>
+    </div>
   )
 }
 
